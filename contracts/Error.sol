@@ -8,13 +8,13 @@ contract ErrorHandling {
 
 
     function addBalance(uint _amount) public  {
-        require(_amount > 0, "Input must be greater than 10");
+        require(_amount > 0, "Amount to add to balance must be greater than 0");
         balance +=_amount;
     }
 
     function withdraw(uint _withdrawAmount) public  {
         if (balance < _withdrawAmount) {
-            revert("Insufficient balance to withdraw");
+            revert("Insufficient balance to withdrawn such an amount");
         }
         balance -= _withdrawAmount;
         totalWithdrawn += _withdrawAmount;
